@@ -5,8 +5,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.util.Arrays;
-
 @RestControllerAdvice
 public class ApiExceptionHandler {
     @ExceptionHandler(value = MethodArgumentNotValidException.class)

@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import med.voll.api.controller.dto.medico.MedicoPost;
+import med.voll.api.controller.dto.medico.MedicoPut;
 
 @Table(name = "medicos")
 @Entity()
@@ -33,6 +34,15 @@ public class Medico {
         this.email = dados.email();
         this.crm = dados.crm();
         this.especialidade = dados.especialidade();
-        this.endereco = new Endereco(dados.endereco());
+        this.endereco = new Endereco(dados.dadosEndereco());
+    }
+
+    public void atualizar(MedicoPut dados) {
+        if (dados.nome() != null) {
+            this.nome = dados.nome();
+        }
+        if (dados.endereco() != null) {
+            this.endereco.atualizar(dados.endereco());
+        }
     }
 }
